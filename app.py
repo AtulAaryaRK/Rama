@@ -1,18 +1,18 @@
-from flask import Flask, render_template, request
+from flask import  Flask , flash , request , redirect , url_for , render_template
 import requests
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/gray')
 def main():
     return render_template("index.html")
 
-@app.route('/', methods=['POST'])
+@app.route('/gray', methods=['POST'])
 def maths_operations():
     equation = request.form['text']
     operation = request.form['operation']
 
-    result = 'https://newton.now.sh/api/v2//'+operation+'/' + equation
+    result = 'https://newton.now.sh/api/v2/'+operation+'/' + equation
 
     data = requests.get(result).json()
 
