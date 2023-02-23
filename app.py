@@ -3,11 +3,11 @@ import requests
 app = Flask(__name__)
 
 
-@app.route('/gray')
+@app.route('/')
 def main():
     return render_template("index.html")
 
-@app.route('/gray', methods=['POST'])
+@app.route('/', methods=['POST'])
 def maths_operations():
     equation = request.form['text']
     operation = request.form['operation']
